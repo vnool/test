@@ -8,14 +8,14 @@ app.set('view engine', 'ejs');    // 设置 template 引擎
 app.use(express.bodyParser());    // 读取请求 body 的中间件
 
 var two=require("test.js");
-console.log(two.name);
+response.write( two.name);
 
 // 使用 Express 路由 API 服务 /hello 的 HTTP GET 请求
 app.get('/hello', function(req, res) {
 	  
 		var HELLO = AV.Object.extend("hello"); 
 		var hello = new HELLO(); 
-		 hello.set("name", 'xxxx');
+		hello.set("name", 'xxxx');
 	    hello.set("val", "111");
 	 
 	    hello.save(null, {
