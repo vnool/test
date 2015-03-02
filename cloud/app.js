@@ -16,12 +16,20 @@ app.get('/hello', function(req, res) {
 
 
 function savetest(){
+	
 	var HELLO = AV.Object.extend("hello"); 
 	var hello = new HELLO(); 
 	 hello.set("name", 'xxxx');
     hello.set("val", "Sean Plott");
  
-    hello.save(null);
+    hello.save(null, {
+		  success: function(gameScore) {
+		    
+		  },
+		  error: function(gameScore, error) {
+		     
+		  }
+		});
     
 }
 // 最后，必须有这行代码来使 express 响应 HTTP 请求
