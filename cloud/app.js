@@ -11,12 +11,13 @@ app.use(express.bodyParser());    // 读取请求 body 的中间件
 app.get('/hello', function(req, res) {
 	savetest();
 	
-  res.render('hello', { message: 'Congrats, you just set up your app!' });
+     res.render('hello', { message: 'Congrats, you just set up your app!' });
 });
 
 
 function savetest(){
-	
+	 response.success("Hello world!");
+	 
 	var HELLO = AV.Object.extend("hello"); 
 	var hello = new HELLO(); 
 	 hello.set("name", 'xxxx');
