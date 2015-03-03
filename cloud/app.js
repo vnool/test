@@ -13,9 +13,9 @@ app.use(express.bodyParser());    // 读取请求 body 的中间件
 app.get('/hello', function(req, res) {
 	   var two=require("cloud/test.js"); 
        res.send(  two.name);
-     
+       res.end();
 
-	   test(res);
+	  // test(res);
 	  // return;
 	
       res.render('hello', { message: 'Congrats, you just set up your app!' });
