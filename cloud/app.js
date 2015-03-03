@@ -18,7 +18,7 @@ app.get('/hello', function(req, res) {
     */
 
 	   test(res);
-	   return;
+	  // return;
 	
       res.render('hello', { message: 'Congrats, you just set up your app!' });
 });
@@ -29,7 +29,7 @@ function test(res){
 		var HELLO = AV.Object.extend("hello"); 
 		var hello = new HELLO(); 
 		hello.set("name", 'xxxx');
-	    hello.set("val", "111");
+	    hello.set("val", "222");
 	 
 	    hello.save(null, {
 			  success: function(gameScore) {			    
@@ -37,8 +37,8 @@ function test(res){
 			  error: function(gameScore, error) {			     
 			  }
 		});
-	res.write('xxxxxxxxxxxx');
-	res.end();
+	//res.write('xxxxxxxxxxxx');
+	//res.end();
 }
  
 	
