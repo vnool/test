@@ -38,6 +38,7 @@ function test(res){
 			  }
 		});
 	res.write('xxxxxxxxxxxx');
+	res.end();
 }
  
 	
