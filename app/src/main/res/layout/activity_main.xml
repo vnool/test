@@ -9,12 +9,65 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.yiyanrong.myapplication.MainActivity">
 
-    <FrameLayout
+    <com.example.yiyanrong.myapplication.MaskSurfaceView
+        android:id="@+id/surface_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+    </com.example.yiyanrong.myapplication.MaskSurfaceView>
+
+    <ImageView
+        android:id="@+id/image_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#000000"
+        android:visibility="gone" />
+
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
-            <com.example.yiyanrong.myapplication.MyGLSurfaceView
-                android:id="@+id/mysurface"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-    </FrameLayout>
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:gravity="center_vertical"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/btn_capture"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="拍照" />
+
+        <Button
+            android:id="@+id/btn_recapture"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:text="重拍"/>
+
+        <Button
+            android:id="@+id/btn_ok"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:text="确认" />
+
+        <Button
+            android:id="@+id/btn_cancel"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="取消" />
+    </LinearLayout>
+    <com.example.yiyanrong.myapplication.MyGLSurfaceView
+        android:id="@+id/surface"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/shape"/>
+    </RelativeLayout>
 </RelativeLayout>

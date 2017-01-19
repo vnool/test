@@ -51,7 +51,7 @@ class BallRender implements GLSurfaceView.Renderer{
 
     FloatBuffer verticalsBuffer;
 
-    int CAP = 9;//绘制球体时，每次增加的角度
+    int CAP = 30;//绘制球体时，每次增加的角度
     float[] verticals = new float[(180 / CAP) * (360 / CAP) * 6 * 3];
 
 
@@ -77,7 +77,7 @@ class BallRender implements GLSurfaceView.Renderer{
 
     Context C;
 
-    public BallRender(Context c ) {
+    public BallRender(Context c) {
         C = c;
 
 
@@ -97,51 +97,51 @@ class BallRender implements GLSurfaceView.Renderer{
             for (int j = 0; j < 360; j += CAP) {
                 //获得球体上切分的超小片矩形的顶点坐标（两个三角形组成，所以有六点顶点）
                 double d2 = j * Math.PI / 180;
-                verticals[index++] = (float) (x + r * Math.sin(d1 + d) * Math.cos(d2 + d));
-                verticals[index++] = (float) (y + r * Math.cos(d1 + d));
-                verticals[index++] = (float) (z + r * Math.sin(d1 + d) * Math.sin(d2 + d));
+                this.verticals[index++] = (float) (x + r * Math.sin(d1 + d) * Math.cos(d2 + d));
+                this.verticals[index++] = (float) (y + r * Math.cos(d1 + d));
+                this.verticals[index++] = (float) (z + r * Math.sin(d1 + d) * Math.sin(d2 + d));
 
                 //获得球体上切分的超小片三角形的纹理坐标
                 UV_TEX_VERTEX[index1++] = (j + CAP) * 1f / 360;
                 UV_TEX_VERTEX[index1++] = (i + CAP) * 1f / 180;
+//
+//                pointStepX++;
+//                if (pointStepX % 4 == 0 && pointStepY % 4 == 0) {
+//                    setPoints(this.verticals, index - 1);
+//                }
 
-                pointStepX++;
-                if (pointStepX % 4 == 0 && pointStepY % 4 == 0) {
-                    setPoints(verticals, index - 1);
-                }
-
-                verticals[index++] = (float) (x + r * Math.sin(d1) * Math.cos(d2));
-                verticals[index++] = (float) (y + r * Math.cos(d1));
-                verticals[index++] = (float) (z + r * Math.sin(d1) * Math.sin(d2));
+                this.verticals[index++] = (float) (x + r * Math.sin(d1) * Math.cos(d2));
+                this.verticals[index++] = (float) (y + r * Math.cos(d1));
+                this.verticals[index++] = (float) (z + r * Math.sin(d1) * Math.sin(d2));
 
 
                 UV_TEX_VERTEX[index1++] = j * 1f / 360;
                 UV_TEX_VERTEX[index1++] = i * 1f / 180;
 
-                verticals[index++] = (float) (x + r * Math.sin(d1) * Math.cos(d2 + d));
-                verticals[index++] = (float) (y + r * Math.cos(d1));
-                verticals[index++] = (float) (z + r * Math.sin(d1) * Math.sin(d2 + d));
+                this.verticals[index++] = (float) (x + r * Math.sin(d1) * Math.cos(d2 + d));
+                this.verticals[index++] = (float) (y + r * Math.cos(d1));
+                this.verticals[index++] = (float) (z + r * Math.sin(d1) * Math.sin(d2 + d));
 
                 UV_TEX_VERTEX[index1++] = (j + CAP) * 1f / 360;
                 UV_TEX_VERTEX[index1++] = i * 1f / 180;
 
-                verticals[index++] = (float) (x + r * Math.sin(d1 + d) * Math.cos(d2 + d));
-                verticals[index++] = (float) (y + r * Math.cos(d1 + d));
-                verticals[index++] = (float) (z + r * Math.sin(d1 + d) * Math.sin(d2 + d));
+                this.verticals[index++] = (float) (x + r * Math.sin(d1 + d) * Math.cos(d2 + d));
+                this.verticals[index++] = (float) (y + r * Math.cos(d1 + d));
+                this.verticals[index++] = (float) (z + r * Math.sin(d1 + d) * Math.sin(d2 + d));
 //setPoints(verticals,index-1);
                 UV_TEX_VERTEX[index1++] = (j + CAP) * 1f / 360;
                 UV_TEX_VERTEX[index1++] = (i + CAP) * 1f / 180;
 
-                verticals[index++] = (float) (x + r * Math.sin(d1 + d) * Math.cos(d2));
-                verticals[index++] = (float) (y + r * Math.cos(d1 + d));
-                verticals[index++] = (float) (z + r * Math.sin(d1 + d) * Math.sin(d2));
+                this.verticals[index++] = (float) (x + r * Math.sin(d1 + d) * Math.cos(d2));
+                this.verticals[index++] = (float) (y + r * Math.cos(d1 + d));
+                this.verticals[index++] = (float) (z + r * Math.sin(d1 + d) * Math.sin(d2));
 
                 UV_TEX_VERTEX[index1++] = j * 1f / 360;
                 UV_TEX_VERTEX[index1++] = (i + CAP) * 1f / 180;
 
-                verticals[index++] = (float) (x + r * Math.sin(d1) * Math.cos(d2));
-                verticals[index++] = (float) (y + r * Math.cos(d1));
-                verticals[index++] = (float) (z + r * Math.sin(d1) * Math.sin(d2));
+                this.verticals[index++] = (float) (x + r * Math.sin(d1) * Math.cos(d2));
+                this.verticals[index++] = (float) (y + r * Math.cos(d1));
+                this.verticals[index++] = (float) (z + r * Math.sin(d1) * Math.sin(d2));
 //setPoints(verticals,index-1);
                 UV_TEX_VERTEX[index1++] = j * 1f / 360;
                 UV_TEX_VERTEX[index1++] = i * 1f / 180;
@@ -149,10 +149,10 @@ class BallRender implements GLSurfaceView.Renderer{
 
             }
         }
-        verticalsBuffer = ByteBuffer.allocateDirect(verticals.length * 4)
+        verticalsBuffer = ByteBuffer.allocateDirect(this.verticals.length * 4)
                 .order(ByteOrder.nativeOrder())
                 .asFloatBuffer()
-                .put(verticals);
+                .put(this.verticals);
         verticalsBuffer.position(0);
 
 
@@ -173,6 +173,8 @@ class BallRender implements GLSurfaceView.Renderer{
 
 
     int mypoints = 0;
+
+
 
     private void setPoints(float[] verticals, int index) {
         try {
@@ -266,7 +268,7 @@ class BallRender implements GLSurfaceView.Renderer{
 
         GLES20.glEnableVertexAttribArray(mPositionHandle);
         GLES20.glVertexAttribPointer(mPositionHandle, 3, GLES20.GL_FLOAT, false,
-                12, pointsBuffer);
+                12, verticalsBuffer);
 
         GLES20.glDrawArrays(GLES20.GL_POINTS, 0, (180 / CAP) * (360 / CAP) * 6);
 
