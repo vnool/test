@@ -51,7 +51,7 @@ class BallRender implements GLSurfaceView.Renderer{
 
     FloatBuffer verticalsBuffer;
 
-    int CAP = 30;//绘制球体时，每次增加的角度
+    int CAP = 10;//绘制球体时，每次增加的角度
     float[] verticals = new float[(180 / CAP) * (360 / CAP) * 6 * 3];
 
 
